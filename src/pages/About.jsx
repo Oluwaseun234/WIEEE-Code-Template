@@ -1,20 +1,36 @@
-import { useState } from "react"; {/* This module is to store information to be sent to the backend */}
+import { useState } from "react";
 
 export default function About() {
   const [resolution, setResolution] = useState("");
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handleEnhance() {
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt: resolution }),
-    });
+    setLoading(true);
+    setResult("");
 
-    const text = await response.text();
-    setResult(text);
+    try {
+      const response = await fetch("http://localhost:4000/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: resolution }),
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        setResult(`Error from backend: ${text || response.statusText}`);
+      } else {
+        const text = await response.text();
+        setResult(text);
+      }
+    } catch (err) {
+      setResult("Network error: could not reach backend.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -24,7 +40,7 @@ export default function About() {
         padding: "2rem",
         maxWidth: "600px",
         margin: "0 auto",
-        textAlign: "center"
+        textAlign: "center",
       }}
     >
       <h2>AI Resolution Enhancer</h2>
@@ -38,7 +54,7 @@ export default function About() {
           width: "100%",
           marginTop: "1rem",
           padding: "0.5rem",
-          fontSize: "1rem"
+          fontSize: "1rem",
         }}
       />
 
@@ -47,15 +63,18 @@ export default function About() {
           marginTop: "1rem",
           padding: "0.5rem 1rem",
           fontSize: "1rem",
-          cursor: "pointer"
+          cursor: "pointer",
+          opacity: loading ? 0.7 : 1,
         }}
         onClick={handleEnhance}
+        disabled={loading}
       >
-        Enhance
+        {loading ? "Enhancing..." : "Enhance"}
       </button>
 
-      <p style={{ marginTop: "1rem" }}>
-        <strong>Result:</strong> {result}
+      <p style={{ marginTop: "1rem", whiteSpace: "pre-wrap" }}>
+        <strong>Result:</strong>{" "}
+        {loading ? "Loading..." : result}
       </p>
     </div>
   );
