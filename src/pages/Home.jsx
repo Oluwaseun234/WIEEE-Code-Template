@@ -9,7 +9,7 @@ export default function Home() {
         <h2>Welcome to <span className="highlight">MyCoach</span></h2>
         <p>
           Welcome to your personalized enhanced assistant to help you kickstart your goals!
-          Take your New Year's resolutions to the next level with this AI-powerd coach!
+          Take your New Year's resolutions to the next level with this AI-powered coach!
 
         </p>
       </section>

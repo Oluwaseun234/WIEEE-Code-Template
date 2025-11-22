@@ -42,11 +42,12 @@ body {
 .hero {
   text-align: center;
   padding: 5rem 1.5rem;
+  margin-top: 5rem;
 }
 
 .hero h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.8rem;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 }
 
 .highlight {
@@ -54,9 +55,10 @@ body {
 }
 
 .hero p {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto 1.5rem auto;
   line-height: 1.6;
+  font-size: 1.5rem;
 }
 
 button {
