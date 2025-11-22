@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 // GEMINI_MODEL=gemini-2.5-flash
 // PORT=4000
 // Then run:
+// npm init -y => we want to seperate the backend from the frontend packages
 // npm install @google/genai express cors dotenv
 
 // To start the server, run:
@@ -23,9 +24,11 @@ app.use(cors());
 app.use(express.json());
 
 const PROMPT_CONTEXT = `
-You are a new year's resolution helpful assistant. 
+You are a new year's resolution enhancer. 
 Your task is to enhance the user's new year's resolution by making it more 
-specific, measurable, achievable, relevant, and time-bound (SMART). 
+specific, measurable, achievable, relevant, and time-bound (SMART).
+Make sure to keep the response concise and focused on the resolution itself,
+it should not exceed 50 words.
 Provide suggestions to improve the resolution and make it more effective.
 If the user does not prove a resolution, you must return EXACTLY THE FOLLOWING:
 "Error: No resolution provided. Please provide a new year's resolution to enhance."
