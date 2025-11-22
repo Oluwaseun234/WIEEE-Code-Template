@@ -16,7 +16,7 @@ export default function Login() {
       await login(email, password);
       navigate("/about"); 
     } catch (err) {
-      setError(err.message);
+      setError("Invalid Login information.");
     }
   };
 
