@@ -1,8 +1,6 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
-// npm install react-markdown => to render markdown text
-
 export default function About() {
   const [resolution, setResolution] = useState("");
   const [result, setResult] = useState("");
@@ -13,7 +11,7 @@ export default function About() {
     setResult("");
 
     try {
-      const response = await fetch("http://localhost:4000/api/generate", {
+      const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
