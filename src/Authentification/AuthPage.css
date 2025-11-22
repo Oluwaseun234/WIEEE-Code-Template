@@ -24,3 +24,7 @@ form{
   gap: 15px;
   margin-top: 6rem;
 }
+.linked {
+  margin-top: 1rem;
+  color: lightblue;
+}

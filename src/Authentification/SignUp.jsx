@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signup } from "../Authentification/AuthFunctions";
+import { Link } from "react-router-dom";
 import "./AuthPage.css"
 
 export default function Signup() {
@@ -40,6 +41,7 @@ export default function Signup() {
           required
         />
         <button type="submit">Sign Up</button>
+        <Link className="linked" to="/login">Already have an account? Log In.</Link>
       </form>
     </div>
   );
