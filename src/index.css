@@ -1,6 +1,6 @@
 :root {
   --primary-color: #0015ff;
-  --light-bg: #f9f7ff;
+  --light-bg: #aeaeae;
   --dark-text: #222;
 }
 
@@ -70,7 +70,7 @@ button {
 }
 
 button:hover {
-  background: #010d90;
+  background: #713fff;
 }
 
 /* About */
