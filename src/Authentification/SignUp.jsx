@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signup } from "../Authentification/AuthFunctions";
+import "./AuthPage.css"
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ export default function Signup() {
 
   return (
     <div className="auth-container">
-      <h2>Sign Up</h2>
+      <h1>Sign Up</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
