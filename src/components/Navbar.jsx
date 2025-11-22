@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <h1 className="logo">WIEEE CODE</h1>
+      <h1 className="logo">MyCoach</h1>
 
       <div className="nav-links">
         <Link to="/">Home</Link>

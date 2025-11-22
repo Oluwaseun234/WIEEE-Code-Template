@@ -6,10 +6,11 @@ export default function Home() {
   return (
     <div className="home">
       <section className="hero">
-        <h2>Welcome to <span className="highlight">WIEEE Code</span></h2>
+        <h2>Welcome to <span className="highlight">MyCoach</span></h2>
         <p>
-          Kickstart your project using this React template.
-          Customize it with your own idea, theme, and creativity!
+          Welcome to your personalized enhanced assistant to help you kickstart your goals!
+          Take your New Year's resolutions to the next level with this AI-powerd coach!
+
         </p>
       </section>
     </div>
