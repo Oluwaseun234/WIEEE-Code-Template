@@ -1,3 +1,3 @@
 # MyCoach app
 
-ReadME is a work in progress.
+This AI-powered app enhances New Year resolutions.

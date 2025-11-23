@@ -17,11 +17,23 @@ export default function Home() {
         </p>
         {user ? (
           <>
-            <button className="startbtn" onClick={() => navigate("/about")}>Get Started</button>
+            <button className="startbtn" style={{
+                width: "200px",
+                height: "75px",
+                marginTop: "2rem",
+                borderRadius: "10px",
+                fontSize: "20px"
+            }} onClick={() => navigate("/about")}>Get Started</button>
           </>
         ) : (
           <>
-            <button className="startbtn" onClick={() => navigate("/login")}>Get Started</button>
+            <button className="startbtn" style={{
+                width: "200px",
+                height: "75px",
+                marginTop: "2rem",
+                borderRadius: "10px",
+                fontSize: "20px"
+            }} onClick={() => navigate("/login")}>Get Started</button>
           </>
         )}
       </section>
