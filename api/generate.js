@@ -50,6 +50,10 @@ const ai = new GoogleGenAI({
 
 export default async function handler(req, res) {
   const prompt = req.body.prompt;
+  if (!prompt || prompt.trim().length === 0) {
+    res.send("Prompt is required.");
+    return;
+  }
 
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
