@@ -1,8 +1,10 @@
 // api/generate.js
 import { GoogleGenAI } from "@google/genai";
 
+// Get the current date to help make resolutions time-bound
 const date = new Date();
 
+// Define the prompt context with instructions for enhancing resolutions
 const PROMPT_CONTEXT = `
 You are a New Year's Resolution Enhancer.
 The current date is: ${date.toDateString()}. Use this to make resolutions time-bound.
@@ -44,17 +46,22 @@ INPUT:
 The user's resolution is:
 `;
 
+// Initialize the GoogleGenAI client with the API key from environment variables
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
+// Export the API handler function
 export default async function handler(req, res) {
   const prompt = req.body.prompt;
+
+  // Validate the input prompt, ensuring it is not empty or just whitespace
   if (!prompt || prompt.trim().length === 0) {
     res.send("Prompt is required.");
     return;
   }
 
+  // Call the Gemini model to generate enhanced resolution content
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: PROMPT_CONTEXT + prompt,

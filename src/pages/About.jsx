@@ -2,10 +2,13 @@ import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 export default function About() {
+
+  // State variables for resolution input, result display, and loading status
   const [resolution, setResolution] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Function to handle the enhancement process when the user clicks the button
   async function handleEnhance() {
     setLoading(true);
     setResult("");
@@ -19,6 +22,7 @@ export default function About() {
         body: JSON.stringify({ prompt: resolution }),
       });
 
+      // Check if the response is okay; if not, handle the error
       if (!response.ok) {
         const text = await response.text();
         setResult(`Error from backend: ${text || response.statusText}`);
@@ -26,6 +30,8 @@ export default function About() {
         const text = await response.text();
         setResult(text);
       }
+
+      // Handle network or other errors
     } catch (err) {
       setResult("Network error: could not reach backend.");
       console.error(err);
@@ -34,6 +40,7 @@ export default function About() {
     }
   }
 
+  // JSX for rendering the About page with input area, button, and result display
   return (
     <div
       className="about"
